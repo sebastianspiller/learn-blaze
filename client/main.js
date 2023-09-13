@@ -1,11 +1,16 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 
+import './routes'
 import './main.html';
 
 Template.hello.onCreated(function helloOnCreated() {
   // counter starts at 0
   this.counter = new ReactiveVar(0);
+});
+
+Template.hello.onRendered(function helloOnRendered() {
+  console.log('javascript has been finished and html has been rendered.')
 });
 
 Template.hello.helpers({
