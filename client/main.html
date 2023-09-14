@@ -6,9 +6,18 @@
 <body>
   <h1>Welcome to Meteor!</h1>
 
+  {{> main}}
+
+</body>
+
+<template name="main">
+  {{> Template.dynamic template=area}}
+</template>
+
+<template name="homepage">
   {{> hello}}
   {{> info}}
-</body>
+</template>
 
 <template name="hello">
   <button>Click Me</button>

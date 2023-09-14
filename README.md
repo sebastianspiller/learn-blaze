@@ -33,3 +33,14 @@ Let's have a look into client/main.js
 
 
 Next lesson will be about routes, we already added routes.js.
+
+## 1. Routing
+- Look at routes.js: 
+  - You see the path '/', this is localhost:3000/
+  - You see "main", which is the higher order template, in which "homepage" is opened
+- Look at main.html
+  - You see the higher order template included in `<body>{{> main}}</main>`
+  - in template "main" you see `{{> Template.dynamic template=area}}`
+  - you remember area as the property in routes.js pointing to 'homepage'
+
+In the next commit, we add a new route.
