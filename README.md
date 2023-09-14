@@ -44,3 +44,20 @@ Next lesson will be about routes, we already added routes.js.
   - you remember area as the property in routes.js pointing to 'homepage'
 
 In the next commit, we add a new route.
+
+## 2. TemplateController (1)
+- Look at routes.js:
+  - You see /login with the area: login, so wee will log into login.html
+- Look at login.html
+  - You see some nice easy readable html, this is plain html we will later add template tags to.
+  - Every template has a js logic in the corresponding .js file, so look into login.js
+- Look at login.js
+  - Now, this is different, instead of Template.hello, we use TemplateController.
+  - TemplateController is some nice grouping of the template logic with other features, we will come to.
+  - look at events:
+    - Here, you add eventHandlers like click, change, input, etc. have a look at meteor.com to find out all of them
+    - You write "click .jquerySyntax"(event, template): So use . for classes, # for ids... You find the corresponding elements in login.html
+    - We used event.preventDefault() here, to stop default of the browser, this is maybe only needed for links `<a href=""></a>` and forms.
+    - You can click on the button and look into the console: The Template has other nice properties we will come to.
+  
+For now, it's enough, we will have a look at the Life Cycle the next time.
