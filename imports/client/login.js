@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import './login.html'
 
 TemplateController('login', {
@@ -8,8 +9,7 @@ TemplateController('login', {
         console.log('onCreated')
 
         this.autorun(() => {
-            const counter = this.state.counter
-            console.log({counter})
+            this.state.counter = _.last(Collections.Messages.find().fetch() || [])?.counter ?? 0
         })
     },
     onRendered() {
@@ -28,6 +28,7 @@ TemplateController('login', {
             console.log('clicked', template)
 
             this.state.counter += 1
+            Collections.Messages.insert({counter: this.state.counter})
         },
     },
 })

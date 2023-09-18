@@ -80,3 +80,19 @@ For now, it's enough, we will have a look at the Life Cycle the next time.
     - in the eventHandler `'click button'` is a ReactiveVar and we do the same here with += 1
     - in the Template.hello.helper is a hidden autorun function, counter is fetched and the template gets re-rendered.
   - When you leave the page, onDestroyed gets called.
+
+## 4. Collections
+- Look at imports/ directory:
+  - We moved some files here, we created a both/ directory imported on client- and server-side for our collection `Messages`
+- Look at imports/both/index.js
+  - We import some globals here for better handling Collections App wide
+  - A Collection.Messages object is handler to the database, see Messages.col.js
+  - Now you can easily write Collections.Messages.insert({stuff}), update, remove and find. Look at login.js now.
+- Look at imports/client/login.js
+  - We replaced the simple console.log. In Line 31, we insert a new counter dataset every click.
+  - In Line 12, the Collection fetch() is a Reactive Var, so every insert this autorun gets rerun.
+  - What we do in line 12: We fetch all datasets, take the last one and use the property counter, we use some nullish operators here like ??
+  - As this.state.counter gets set now with the dataset Messages.counter, we can go to login.html: `{{state.counter}}` outputs counter.
+- To make Data Base work currently, we added some packages: meteor insecure and meteor autopublish. We will remove them later.
+
+Next chapter we will have a look at Simple Schema and more Template Helpers.
