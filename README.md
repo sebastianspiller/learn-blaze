@@ -61,3 +61,22 @@ In the next commit, we add a new route.
     - You can click on the button and look into the console: The Template has other nice properties we will come to.
   
 For now, it's enough, we will have a look at the Life Cycle the next time.
+
+## 3. The Live-Cycle & Tracker.autorun
+- Look at login.js:
+  - Remember, onCreated is called on the first run before the html gets rendered.
+  - Tracker.autorun and this.autorun is nearly the same, only that this.autorun is bound to this template.
+  - When onCreated is called, the function in this.autorun gets registered.
+    - this.state.counter is a reactive var, we created in state:{} (line 4)
+    - Every reactive var in an autorun function makes the function rerun, when it changes.
+    - Database Queries in Meteor and new ReactiveVar() are also reactive vars. Helpers work similarly.
+  - So after onCreated is called, the html with all helpers gets rendered and onRendered gets called.
+    - If there is a `{{> subTemplate}}` inside the html, it gets rendered with a new Lifecycle.
+  - Now things can happen on the page, here clicking button will call the eventHandler `'click .js-loginButton'`
+    - You see, inside is this.state.counter += 1, when clicked.
+    - Now this.state.counter changes and the autorun in onCreated gets re-rendered
+    - A console.log will be printed.
+  - Look at main.js
+    - in the eventHandler `'click button'` is a ReactiveVar and we do the same here with += 1
+    - in the Template.hello.helper is a hidden autorun function, counter is fetched and the template gets re-rendered.
+  - When you leave the page, onDestroyed gets called.
