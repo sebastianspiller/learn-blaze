@@ -28,7 +28,13 @@ TemplateController('login', {
             console.log('clicked', template)
 
             this.state.counter += 1
-            Collections.Messages.insert({counter: this.state.counter})
+            Meteor.call('insertCounter', {counter: this.state.counter}, (error, result) => {
+                if (error) {
+                    console.error({error})
+                } else {
+                    console.log({result})
+                }
+            })
         },
     },
 })

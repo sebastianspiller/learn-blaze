@@ -9,3 +9,9 @@ FlowRouter.route('/login', {
         BlazeLayout.render("main", {area: 'login'});
     },
 })
+
+FlowRouter.route('/stream', {
+    action: function (params) {
+        BlazeLayout.render("main", {area: 'stream'});
+    },
+})

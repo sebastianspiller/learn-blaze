@@ -96,3 +96,19 @@ For now, it's enough, we will have a look at the Life Cycle the next time.
 - To make Data Base work currently, we added some packages: meteor insecure and meteor autopublish. We will remove them later.
 
 Next chapter we will have a look at Simple Schema and more Template Helpers.
+
+## 5. Simple Schema & Meteor Methods & Template Helpers
+- Look at Messages.col.js
+  - Last time, we added a Schema already. You define, which values are allowed with which type in the database.
+    - npm package simpl-schema and meteor package aldeed:collection2 make all of this possible
+    - you see: optional: true, so this value can be not defined.
+- Look at imports/both/insertCounter.js
+  - This is a meteor method, it's like a post to a server, but it's on both: client & server
+  - A meteor method can also just be on server side, but on client side it's for simulation
+    - A simulation makes work the app smooth. The result gets simulated on the client already, so you it seems faster.
+  - You can write: `Meteor.call('name', payload, (error, result) => {})`
+    - This is a function call with a payload (the sent data) and a callback with error messaging / results from the server.
+  - We have removed package `meteor insecure` because we now use a method for a database insert.
+- Look at stream.js, stream.html and on localhost:3000/stream
+  - I added a /stream route to show you some nice template helpers.
+  - These template helpers is meteor package `raix:handlebar-helpers`

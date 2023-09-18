@@ -29,5 +29,5 @@ kadira:blaze-layout
 arillo:flow-router-helpers@0.5.2
 fourseven:scss@4.15.0
 aldeed:collection2
-insecure
 autopublish
+raix:handlebar-helpers

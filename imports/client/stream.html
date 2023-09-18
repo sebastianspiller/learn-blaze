@@ -1,0 +1,38 @@
+<template name="stream">
+    {{#if $and state.a state.b}}
+        state.a && state.b<br>
+        true && true
+    {{/if}}
+
+    <br><br>
+
+    {{#if $or state.a state.c}}
+        state.a || state.c<br>
+        true || false
+    {{/if}}
+
+    <br><br>
+
+    {{#unless $not state.a}}
+        if not is unless<br>
+        unless not is if
+    {{/unless}}
+
+    <br><br>
+
+    {{#if $eq state.d 1}}
+        if 1 === 1
+    {{/if}}
+
+    <br><br>
+
+    {{#if $neq state.d 2}}
+        if 1 !== 2
+    {{/if}}
+
+    <br><br>
+
+    {{#each val in state.arr}}
+        {{val}}<br>
+    {{/each}}
+</template>
